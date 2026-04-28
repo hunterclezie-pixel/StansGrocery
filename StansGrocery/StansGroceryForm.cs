@@ -7,9 +7,9 @@ github url: https://github.com/hunterclezie-pixel/StansGrocery.git
 */
 namespace StansGrocery
 {
-    public partial class StansGrocery : Form
+    public partial class StansGroceryForm : Form
     {
-        public StansGrocery()
+        public StansGroceryForm()
         {
             InitializeComponent();
         }
