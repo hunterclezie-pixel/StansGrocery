@@ -35,15 +35,15 @@
             DisplayListBox = new ListBox();
             DisplayLabel = new Label();
             FilterGroupBox = new GroupBox();
-            FilterByAisleRadioButton = new RadioButton();
             FilterByCategoryRadioButton = new RadioButton();
+            FilterByAisleRadioButton = new RadioButton();
             TopMenuStrip = new MenuStrip();
-            ContextMenuStrip = new ContextMenuStrip(components);
             FileTopStripMenuItem = new ToolStripMenuItem();
             SearchTopStripMenuItem = new ToolStripMenuItem();
             ExitTopStripMenuItem = new ToolStripMenuItem();
             HelpTopStripMenuItem = new ToolStripMenuItem();
             AboutTopStripMenuItem = new ToolStripMenuItem();
+            ContextMenuStrip = new ContextMenuStrip(components);
             SearchContextMenuItem = new ToolStripMenuItem();
             ExitContextMenuItem = new ToolStripMenuItem();
             MainToolTip = new ToolTip(components);
@@ -67,6 +67,7 @@
             SearchButton.TabIndex = 1;
             SearchButton.Text = "Search";
             SearchButton.UseVisualStyleBackColor = true;
+            SearchButton.Click += SearchButton_Click;
             // 
             // FilterComboBox
             // 
@@ -106,17 +107,6 @@
             FilterGroupBox.TabStop = false;
             FilterGroupBox.Text = "Filter Group Box";
             // 
-            // FilterByAisleRadioButton
-            // 
-            FilterByAisleRadioButton.AutoSize = true;
-            FilterByAisleRadioButton.Location = new Point(6, 38);
-            FilterByAisleRadioButton.Name = "FilterByAisleRadioButton";
-            FilterByAisleRadioButton.Size = new Size(119, 24);
-            FilterByAisleRadioButton.TabIndex = 6;
-            FilterByAisleRadioButton.TabStop = true;
-            FilterByAisleRadioButton.Text = "Filter By Aisle";
-            FilterByAisleRadioButton.UseVisualStyleBackColor = true;
-            // 
             // FilterByCategoryRadioButton
             // 
             FilterByCategoryRadioButton.AutoSize = true;
@@ -127,6 +117,19 @@
             FilterByCategoryRadioButton.TabStop = true;
             FilterByCategoryRadioButton.Text = "Filter By Category";
             FilterByCategoryRadioButton.UseVisualStyleBackColor = true;
+            FilterByCategoryRadioButton.CheckedChanged += FilterByCategoryRadioButton_CheckedChanged;
+            // 
+            // FilterByAisleRadioButton
+            // 
+            FilterByAisleRadioButton.AutoSize = true;
+            FilterByAisleRadioButton.Location = new Point(6, 38);
+            FilterByAisleRadioButton.Name = "FilterByAisleRadioButton";
+            FilterByAisleRadioButton.Size = new Size(119, 24);
+            FilterByAisleRadioButton.TabIndex = 6;
+            FilterByAisleRadioButton.TabStop = true;
+            FilterByAisleRadioButton.Text = "Filter By Aisle";
+            FilterByAisleRadioButton.UseVisualStyleBackColor = true;
+            FilterByAisleRadioButton.CheckedChanged += FilterByAisleRadioButton_CheckedChanged;
             // 
             // TopMenuStrip
             // 
@@ -137,13 +140,6 @@
             TopMenuStrip.Size = new Size(800, 28);
             TopMenuStrip.TabIndex = 6;
             TopMenuStrip.Text = "menuStrip1";
-            // 
-            // ContextMenuStrip
-            // 
-            ContextMenuStrip.ImageScalingSize = new Size(20, 20);
-            ContextMenuStrip.Items.AddRange(new ToolStripItem[] { SearchContextMenuItem, ExitContextMenuItem });
-            ContextMenuStrip.Name = "ContextMenuStrip";
-            ContextMenuStrip.Size = new Size(123, 52);
             // 
             // FileTopStripMenuItem
             // 
@@ -174,8 +170,15 @@
             // AboutTopStripMenuItem
             // 
             AboutTopStripMenuItem.Name = "AboutTopStripMenuItem";
-            AboutTopStripMenuItem.Size = new Size(224, 26);
+            AboutTopStripMenuItem.Size = new Size(133, 26);
             AboutTopStripMenuItem.Text = "About";
+            // 
+            // ContextMenuStrip
+            // 
+            ContextMenuStrip.ImageScalingSize = new Size(20, 20);
+            ContextMenuStrip.Items.AddRange(new ToolStripItem[] { SearchContextMenuItem, ExitContextMenuItem });
+            ContextMenuStrip.Name = "ContextMenuStrip";
+            ContextMenuStrip.Size = new Size(123, 52);
             // 
             // SearchContextMenuItem
             // 
