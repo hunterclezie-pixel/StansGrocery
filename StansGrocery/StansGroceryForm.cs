@@ -12,7 +12,7 @@ namespace StansGrocery
         public StansGroceryForm()
         {
             InitializeComponent();
-            FileToArray(this.filePath);
+            FileToArray(filePath);
         }
 
         string[,] customerData = new string[0, 0]; // persistent customer data
@@ -34,30 +34,45 @@ namespace StansGrocery
             return count;
         }
 
+        void CleanFile()
+        {
+
+            // Read all lines
+            string[] lines = File.ReadAllLines(filePath);
+
+            // Convert into cleaned 2D array
+            var cleanedData = lines
+                .Select(line => line
+                    .Split(',')
+                    .Select(item => CleanString(item))
+                    .ToArray()
+                )
+                .ToArray();
+
+            // Print result (for testing)
+            foreach (var row in cleanedData)
+            {
+                string display = string.Join("|", row);
+                DisplayListBox.Items.Add(display);
+            }
+        }
+
+        static string CleanString(string input)
+        {
+            return input
+                .Replace("\"", "") // remove quotes
+                .Replace("$", "") // remove dollar signs
+                .Replace("#", "") // remove hash symbols
+                .Replace("%", "") // remove percent signs
+                .Replace("ITM", "") // remove "ITM" prefix
+                .Replace("LOC", "") // remove "LOC" prefix
+                .Replace("CAT", "") // remove "CAT" prefix
+                .Trim(); 
+        }
+
         void FileToArray(string filePath)
         {
-            string[,] _customerData = new string[4, CountOfLinesIn(filePath)];
-            string[] temp;
-            int counter = 0;
-
-            using (StreamReader testFile = new StreamReader(filePath))
-            {
-                do
-                {
-                    temp = testFile.ReadLine().Split(",");
-                    if (temp.Length == 5)
-                    {
-                        temp[0] = temp[0].Replace("\"$$", "");
-                        temp[3] = temp[3].Replace("\"", "");
-                        _customerData[0, counter] = temp[0];
-                        _customerData[1, counter] = temp[1];
-                        _customerData[2, counter] = temp[2];
-                        _customerData[3, counter] = temp[3];
-                    }
-                    counter++;
-                } while (!testFile.EndOfStream);
-            }
-            this.customerData = _customerData;
+            CleanFile();
         }
 
         void DisplayData()

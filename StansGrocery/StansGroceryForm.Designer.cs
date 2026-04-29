@@ -54,14 +54,14 @@
             // 
             // SearchTextBox
             // 
-            SearchTextBox.Location = new Point(6, 130);
+            SearchTextBox.Location = new Point(227, 26);
             SearchTextBox.Name = "SearchTextBox";
             SearchTextBox.Size = new Size(125, 27);
             SearchTextBox.TabIndex = 0;
             // 
             // SearchButton
             // 
-            SearchButton.Location = new Point(6, 163);
+            SearchButton.Location = new Point(227, 59);
             SearchButton.Name = "SearchButton";
             SearchButton.Size = new Size(123, 42);
             SearchButton.TabIndex = 1;
@@ -72,23 +72,24 @@
             // FilterComboBox
             // 
             FilterComboBox.FormattingEnabled = true;
-            FilterComboBox.Location = new Point(414, 129);
+            FilterComboBox.Location = new Point(571, 200);
             FilterComboBox.Name = "FilterComboBox";
             FilterComboBox.Size = new Size(151, 28);
             FilterComboBox.TabIndex = 2;
             // 
             // DisplayListBox
             // 
+            DisplayListBox.Font = new Font("Consolas", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             DisplayListBox.FormattingEnabled = true;
-            DisplayListBox.Location = new Point(414, 163);
+            DisplayListBox.Location = new Point(18, 45);
             DisplayListBox.Name = "DisplayListBox";
-            DisplayListBox.Size = new Size(318, 204);
+            DisplayListBox.Size = new Size(364, 202);
             DisplayListBox.TabIndex = 3;
             // 
             // DisplayLabel
             // 
             DisplayLabel.AutoSize = true;
-            DisplayLabel.Location = new Point(281, 163);
+            DisplayLabel.Location = new Point(638, 94);
             DisplayLabel.Name = "DisplayLabel";
             DisplayLabel.Size = new Size(94, 20);
             DisplayLabel.TabIndex = 4;
@@ -100,9 +101,9 @@
             FilterGroupBox.Controls.Add(FilterByAisleRadioButton);
             FilterGroupBox.Controls.Add(SearchButton);
             FilterGroupBox.Controls.Add(SearchTextBox);
-            FilterGroupBox.Location = new Point(135, 155);
+            FilterGroupBox.Location = new Point(12, 255);
             FilterGroupBox.Name = "FilterGroupBox";
-            FilterGroupBox.Size = new Size(250, 211);
+            FilterGroupBox.Size = new Size(370, 112);
             FilterGroupBox.TabIndex = 5;
             FilterGroupBox.TabStop = false;
             FilterGroupBox.Text = "Filter Group Box";
