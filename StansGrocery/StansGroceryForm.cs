@@ -12,13 +12,24 @@ namespace StansGrocery
         public StansGroceryForm()
         {
             InitializeComponent();
+            SetDefaults();
             FileToArray(filePath);
+            DisplayData();
+
+            SearchTopStripMenuItem.Click += SearchButton_Click;
+            SearchContextMenuItem.Click += SearchButton_Click;
+            ExitContextMenuItem.Click += ExitTopStripMenuItem_Click;
         }
 
         string[,] customerData = new string[0, 0]; // persistent customer data
         string filePath = @"C:\Users\clezh\OneDrive\Documents\Robotics\4th Semester\Github Assignments\StansGrocery\Grocery.txt";
 
         // Custom Methods Below Here ---------------------------------------------------
+
+        private void SetDefaults()
+        {
+            FilterByAisleRadioButton.Checked = true;
+        }
 
         int CountOfLinesIn(string filePath)
         {
@@ -34,30 +45,7 @@ namespace StansGrocery
             return count;
         }
 
-        void CleanFile()
-        {
-
-            // Read all lines
-            string[] lines = File.ReadAllLines(filePath);
-
-            // Convert into cleaned 2D array
-            var cleanedData = lines
-                .Select(line => line
-                    .Split(',')
-                    .Select(item => CleanString(item))
-                    .ToArray()
-                )
-                .ToArray();
-
-            // Print result (for testing)
-            foreach (var row in cleanedData)
-            {
-                string display = string.Join("|", row);
-                DisplayListBox.Items.Add(display);
-            }
-        }
-
-        static string CleanString(string input)
+        string CleanField(string input)
         {
             return input
                 .Replace("\"", "") // remove quotes
@@ -67,12 +55,34 @@ namespace StansGrocery
                 .Replace("ITM", "") // remove "ITM" prefix
                 .Replace("LOC", "") // remove "LOC" prefix
                 .Replace("CAT", "") // remove "CAT" prefix
-                .Trim(); 
+                .Trim(); // remove leading and trailing whitespace
         }
 
         void FileToArray(string filePath)
         {
-            CleanFile();
+            string[,] _customerData = new string[3, CountOfLinesIn(filePath)];
+            string[] temp;
+            int counter = 0;
+
+            using (StreamReader testFile = new StreamReader(filePath))
+            {
+                do
+                {
+                    temp = testFile.ReadLine().Split(',');
+
+                    if (temp.Length >= 3)
+                    {
+                        for (int i = 0; i < temp.Length && i < 4; i++)
+                        {
+                            _customerData[i, counter] = CleanField(temp[i]);
+                        }
+                    }
+
+                    counter++;
+                } while (!testFile.EndOfStream);
+            }
+
+            this.customerData = _customerData;
         }
 
         void DisplayData()
@@ -85,11 +95,11 @@ namespace StansGrocery
 
             switch (true)
             {
+                case bool when FilterByCategoryRadioButton.Checked:
+                    filterColumn = 2;
+                    break;
                 case bool when FilterByAisleRadioButton.Checked:
                     filterColumn = 1;
-                    break;
-                case bool when FilterByCategoryRadioButton.Checked:
-                    filterColumn = 0;
                     break;
                     //default:
             }
@@ -100,7 +110,8 @@ namespace StansGrocery
                 {
                     if (data[column, row] != null && (data[filterColumn, row] == FilterComboBox.SelectedItem.ToString() || FilterComboBox.SelectedIndex == 0))
                     {
-                        formattedRow += data[column, row].PadRight(14);
+                        // format the row for display, giving each field a fixed width for better readability
+                        formattedRow = $"{data[0, row],-25} {data[1, row],-5} {data[2, row],-25}";
                     }
                 }
                 if (formattedRow != "")
@@ -131,7 +142,7 @@ namespace StansGrocery
                     column = 1;
                     break;
                 case bool when FilterByCategoryRadioButton.Checked:
-                    column = 0;
+                    column = 2;
                     break;
                     //default:
             }
@@ -154,7 +165,9 @@ namespace StansGrocery
 
         private void SearchButton_Click(object sender, EventArgs e)
         {
-
+            FilterComboBox.SelectedIndex = 0;
+            DisplayData();
+            SearchTextBox.Text = "";
         }
 
         private void FilterByAisleRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -170,6 +183,11 @@ namespace StansGrocery
         private void FilterComboBox_SelectedIndexChanged(object? sender, EventArgs e)
         {
             DisplayData();
+        }
+
+        private void ExitTopStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

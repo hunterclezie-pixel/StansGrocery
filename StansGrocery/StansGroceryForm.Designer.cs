@@ -54,16 +54,16 @@
             // 
             // SearchTextBox
             // 
-            SearchTextBox.Location = new Point(227, 26);
+            SearchTextBox.Location = new Point(287, 272);
             SearchTextBox.Name = "SearchTextBox";
-            SearchTextBox.Size = new Size(125, 27);
+            SearchTextBox.Size = new Size(182, 27);
             SearchTextBox.TabIndex = 0;
             // 
             // SearchButton
             // 
-            SearchButton.Location = new Point(227, 59);
+            SearchButton.Location = new Point(287, 305);
             SearchButton.Name = "SearchButton";
-            SearchButton.Size = new Size(123, 42);
+            SearchButton.Size = new Size(182, 42);
             SearchButton.TabIndex = 1;
             SearchButton.Text = "Search";
             SearchButton.UseVisualStyleBackColor = true;
@@ -72,7 +72,7 @@
             // FilterComboBox
             // 
             FilterComboBox.FormattingEnabled = true;
-            FilterComboBox.Location = new Point(571, 200);
+            FilterComboBox.Location = new Point(475, 68);
             FilterComboBox.Name = "FilterComboBox";
             FilterComboBox.Size = new Size(151, 28);
             FilterComboBox.TabIndex = 2;
@@ -83,27 +83,25 @@
             DisplayListBox.FormattingEnabled = true;
             DisplayListBox.Location = new Point(18, 45);
             DisplayListBox.Name = "DisplayListBox";
-            DisplayListBox.Size = new Size(364, 202);
+            DisplayListBox.Size = new Size(451, 202);
             DisplayListBox.TabIndex = 3;
             // 
             // DisplayLabel
             // 
             DisplayLabel.AutoSize = true;
-            DisplayLabel.Location = new Point(638, 94);
+            DisplayLabel.Location = new Point(475, 45);
             DisplayLabel.Name = "DisplayLabel";
-            DisplayLabel.Size = new Size(94, 20);
+            DisplayLabel.Size = new Size(135, 20);
             DisplayLabel.TabIndex = 4;
-            DisplayLabel.Text = "DisplayLabel";
+            DisplayLabel.Text = "Filter Display Label";
             // 
             // FilterGroupBox
             // 
             FilterGroupBox.Controls.Add(FilterByCategoryRadioButton);
             FilterGroupBox.Controls.Add(FilterByAisleRadioButton);
-            FilterGroupBox.Controls.Add(SearchButton);
-            FilterGroupBox.Controls.Add(SearchTextBox);
-            FilterGroupBox.Location = new Point(12, 255);
+            FilterGroupBox.Location = new Point(18, 253);
             FilterGroupBox.Name = "FilterGroupBox";
-            FilterGroupBox.Size = new Size(370, 112);
+            FilterGroupBox.Size = new Size(263, 94);
             FilterGroupBox.TabIndex = 5;
             FilterGroupBox.TabStop = false;
             FilterGroupBox.Text = "Filter Group Box";
@@ -111,7 +109,7 @@
             // FilterByCategoryRadioButton
             // 
             FilterByCategoryRadioButton.AutoSize = true;
-            FilterByCategoryRadioButton.Location = new Point(6, 68);
+            FilterByCategoryRadioButton.Location = new Point(6, 61);
             FilterByCategoryRadioButton.Name = "FilterByCategoryRadioButton";
             FilterByCategoryRadioButton.Size = new Size(147, 24);
             FilterByCategoryRadioButton.TabIndex = 7;
@@ -123,7 +121,7 @@
             // FilterByAisleRadioButton
             // 
             FilterByAisleRadioButton.AutoSize = true;
-            FilterByAisleRadioButton.Location = new Point(6, 38);
+            FilterByAisleRadioButton.Location = new Point(6, 31);
             FilterByAisleRadioButton.Name = "FilterByAisleRadioButton";
             FilterByAisleRadioButton.Size = new Size(119, 24);
             FilterByAisleRadioButton.TabIndex = 6;
@@ -160,6 +158,7 @@
             ExitTopStripMenuItem.Name = "ExitTopStripMenuItem";
             ExitTopStripMenuItem.Size = new Size(136, 26);
             ExitTopStripMenuItem.Text = "Exit";
+            ExitTopStripMenuItem.Click += ExitTopStripMenuItem_Click;
             // 
             // HelpTopStripMenuItem
             // 
@@ -199,6 +198,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(FilterGroupBox);
+            Controls.Add(SearchButton);
+            Controls.Add(SearchTextBox);
             Controls.Add(DisplayLabel);
             Controls.Add(DisplayListBox);
             Controls.Add(FilterComboBox);
