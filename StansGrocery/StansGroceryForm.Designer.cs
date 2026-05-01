@@ -54,14 +54,14 @@
             // 
             // SearchTextBox
             // 
-            SearchTextBox.Location = new Point(287, 272);
+            SearchTextBox.Location = new Point(475, 43);
             SearchTextBox.Name = "SearchTextBox";
             SearchTextBox.Size = new Size(182, 27);
             SearchTextBox.TabIndex = 0;
             // 
             // SearchButton
             // 
-            SearchButton.Location = new Point(287, 305);
+            SearchButton.Location = new Point(475, 76);
             SearchButton.Name = "SearchButton";
             SearchButton.Size = new Size(182, 42);
             SearchButton.TabIndex = 1;
@@ -72,7 +72,7 @@
             // FilterComboBox
             // 
             FilterComboBox.FormattingEnabled = true;
-            FilterComboBox.Location = new Point(475, 68);
+            FilterComboBox.Location = new Point(178, 51);
             FilterComboBox.Name = "FilterComboBox";
             FilterComboBox.Size = new Size(151, 28);
             FilterComboBox.TabIndex = 2;
@@ -89,7 +89,7 @@
             // DisplayLabel
             // 
             DisplayLabel.AutoSize = true;
-            DisplayLabel.Location = new Point(475, 45);
+            DisplayLabel.Location = new Point(178, 28);
             DisplayLabel.Name = "DisplayLabel";
             DisplayLabel.Size = new Size(135, 20);
             DisplayLabel.TabIndex = 4;
@@ -99,9 +99,11 @@
             // 
             FilterGroupBox.Controls.Add(FilterByCategoryRadioButton);
             FilterGroupBox.Controls.Add(FilterByAisleRadioButton);
+            FilterGroupBox.Controls.Add(FilterComboBox);
+            FilterGroupBox.Controls.Add(DisplayLabel);
             FilterGroupBox.Location = new Point(18, 253);
             FilterGroupBox.Name = "FilterGroupBox";
-            FilterGroupBox.Size = new Size(263, 94);
+            FilterGroupBox.Size = new Size(451, 94);
             FilterGroupBox.TabIndex = 5;
             FilterGroupBox.TabStop = false;
             FilterGroupBox.Text = "Filter Group Box";
@@ -170,7 +172,7 @@
             // AboutTopStripMenuItem
             // 
             AboutTopStripMenuItem.Name = "AboutTopStripMenuItem";
-            AboutTopStripMenuItem.Size = new Size(224, 26);
+            AboutTopStripMenuItem.Size = new Size(133, 26);
             AboutTopStripMenuItem.Text = "About";
             AboutTopStripMenuItem.Click += AboutTopStripMenuItem_Click;
             // 
@@ -201,9 +203,7 @@
             Controls.Add(FilterGroupBox);
             Controls.Add(SearchButton);
             Controls.Add(SearchTextBox);
-            Controls.Add(DisplayLabel);
             Controls.Add(DisplayListBox);
-            Controls.Add(FilterComboBox);
             Controls.Add(TopMenuStrip);
             MainMenuStrip = TopMenuStrip;
             Name = "StansGroceryForm";
