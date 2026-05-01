@@ -11,6 +11,7 @@ namespace StansGrocery
     {
         public StansGroceryForm()
         {
+            ShowSplashForm();
             InitializeComponent();
             SetDefaults();
             FileToArray(filePath);
@@ -19,6 +20,9 @@ namespace StansGrocery
             SearchTopStripMenuItem.Click += SearchButton_Click;
             SearchContextMenuItem.Click += SearchButton_Click;
             ExitContextMenuItem.Click += ExitTopStripMenuItem_Click;
+
+            SplashForm splashForm = new SplashForm();
+            splashForm.Show();
         }
 
         string[,] customerData = new string[0, 0]; // persistent customer data
@@ -158,6 +162,14 @@ namespace StansGrocery
             FilterComboBox.Sorted = true;
             FilterComboBox.SelectedIndex = 0;
 
+        }
+
+        private void ShowSplashForm()
+        {
+            SplashForm splashForm = new SplashForm(); // Create an instance of the splash form
+            splashForm.Show(); // Show the splash screen
+            System.Threading.Thread.Sleep(3000); // Show the splash screen for 3 seconds
+            splashForm.Close(); // Close the splash screen after the delay
         }
 
         // Event Handlers Below Here ---------------------------------------------------
