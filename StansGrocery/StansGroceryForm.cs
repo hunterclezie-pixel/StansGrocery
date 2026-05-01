@@ -127,7 +127,6 @@ namespace StansGrocery
                     }
 
                 }
-                formattedRow = "";
             }
         }
 
@@ -188,6 +187,19 @@ namespace StansGrocery
         private void ExitTopStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AboutTopStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.FormClosed += AboutForm_FormClosed;
+            aboutForm.Show();
+            this.Hide();
+        }
+
+        private void AboutForm_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            this.Show();
         }
     }
 }

@@ -170,8 +170,9 @@
             // AboutTopStripMenuItem
             // 
             AboutTopStripMenuItem.Name = "AboutTopStripMenuItem";
-            AboutTopStripMenuItem.Size = new Size(133, 26);
+            AboutTopStripMenuItem.Size = new Size(224, 26);
             AboutTopStripMenuItem.Text = "About";
+            AboutTopStripMenuItem.Click += AboutTopStripMenuItem_Click;
             // 
             // ContextMenuStrip
             // 
@@ -206,6 +207,7 @@
             Controls.Add(TopMenuStrip);
             MainMenuStrip = TopMenuStrip;
             Name = "StansGroceryForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "StansGrocery";
             FilterGroupBox.ResumeLayout(false);
             FilterGroupBox.PerformLayout();

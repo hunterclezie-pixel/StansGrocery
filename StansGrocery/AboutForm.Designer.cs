@@ -36,27 +36,29 @@
             // 
             AboutLabel.Location = new Point(12, 9);
             AboutLabel.Name = "AboutLabel";
-            AboutLabel.Size = new Size(331, 203);
+            AboutLabel.Size = new Size(507, 136);
             AboutLabel.TabIndex = 0;
             AboutLabel.Text = "About Label";
             // 
             // OkButton
             // 
-            OkButton.Location = new Point(249, 226);
+            OkButton.Location = new Point(425, 148);
             OkButton.Name = "OkButton";
             OkButton.Size = new Size(94, 39);
             OkButton.TabIndex = 1;
             OkButton.Text = "Ok";
             OkButton.UseVisualStyleBackColor = true;
+            OkButton.Click += OkButton_Click;
             // 
             // AboutForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(355, 277);
+            ClientSize = new Size(531, 200);
             Controls.Add(OkButton);
             Controls.Add(AboutLabel);
             Name = "AboutForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "AboutForm";
             ResumeLayout(false);
         }

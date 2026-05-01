@@ -24,5 +24,10 @@ namespace StansGrocery
             $"You can also use the search feature to quickly find specific items." + "\n" +
             $"Thank you for using StansGrocery! Press the \"OK\" button to continue.";
         }
+
+        private void OkButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
