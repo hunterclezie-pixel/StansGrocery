@@ -19,10 +19,8 @@ namespace StansGrocery
         void UpdateLabel()
         {
             AboutLabel.Text = $"Welcome to StansGrocery!" + "\n" +
-            $"This program is designed to help you manage your grocery store efficiently." + "\n" +
-            $"You can sort by either the aisle or the category of food." + "\n" +
-            $"You can also use the search feature to quickly find specific items." + "\n" +
-            $"Thank you for using StansGrocery! Press the \"OK\" button to continue.";
+            $"This program loads grocery item data from a file and allows users to search and filter items by name, aisle, or category using multiple interface options. " + 
+            $"It dynamically updates the displayed results and provides clear feedback, ensuring users can easily locate items or be informed when no matches are found.";
         }
 
         private void OkButton_Click(object sender, EventArgs e)
