@@ -17,6 +17,7 @@ namespace StansGrocery
             FileToArray(filePath);
             DisplayData();
 
+            // Attach event handlers to the appropriate controls
             SearchTopStripMenuItem.Click += SearchButton_Click;
             SearchContextMenuItem.Click += SearchButton_Click;
             ExitContextMenuItem.Click += ExitTopStripMenuItem_Click;
@@ -30,11 +31,13 @@ namespace StansGrocery
 
         // Custom Methods Below Here ---------------------------------------------------
 
+        // Sets the default state of the form's controls when the application starts
         private void SetDefaults()
         {
             FilterByAisleRadioButton.Checked = true;
         }
 
+        // Counts the number of lines in the specified file to determine how many records there are
         int CountOfLinesIn(string filePath)
         {
             int count = 0;
@@ -49,6 +52,7 @@ namespace StansGrocery
             return count;
         }
 
+        // Cleans a string field by removing unwanted characters and prefixes, and trimming whitespace
         string CleanField(string input)
         {
             return input
@@ -62,6 +66,7 @@ namespace StansGrocery
                 .Trim(); // remove leading and trailing whitespace
         }
 
+        // Reads the customer data from the specified file and stores it in a 2D array for later use
         void FileToArray(string filePath)
         {
             string[,] _customerData = new string[3, CountOfLinesIn(filePath)];
@@ -89,6 +94,7 @@ namespace StansGrocery
             this.customerData = _customerData;
         }
 
+        // Displays the customer data in the ListBox, applying filters based on the selected category or aisle and search text
         void DisplayData()
         {
             string[,] data = this.customerData;
@@ -134,6 +140,7 @@ namespace StansGrocery
             }
         }
 
+        // Loads the filter options into the ComboBox based on the selected filter type (aisle or category)
         void LoadFilterComboBox()
         {
             int column = 1;
@@ -164,6 +171,7 @@ namespace StansGrocery
 
         }
 
+        // Displays a splash screen for a few seconds when the application starts
         private void ShowSplashForm()
         {
             SplashForm splashForm = new SplashForm(); // Create an instance of the splash form
